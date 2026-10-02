@@ -1,0 +1,273 @@
+!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Coin des Bons Plans</title>
+
+<meta name="description" content="Découvrez les gadgets tendance et les bonnes trouvailles sur Coin des Bons Plans.">
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#17243a}
+
+header{background:#101b30;color:white;padding:22px 18px}
+
+.logo{font-size:24px;font-weight:bold}
+
+.logo span{color:#ffab42}
+
+nav{margin-top:18px;display:flex;gap:20px}
+
+nav a{color:white;text-decoration:none}
+
+.hero{background:linear-gradient(135deg,#101b30,#263f60);color:white;text-align:center;padding:55px 20px}
+
+.hero h1{font-size:36px;margin:0 0 15px}
+
+.hero p{line-height:1.6;color:#d5deeb}
+
+.btn{display:inline-block;background:#ffab42;color:#17243a;text-decoration:none;padding:14px 22px;border-radius:9px;font-weight:bold;margin-top:12px}
+
+main{max-width:1050px;margin:auto;padding:25px 16px}
+
+h2{font-size:25px}
+
+.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;font-size:16px;margin:10px 0 18px}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+
+.filters button{border:0;padding:11px 15px;border-radius:20px;background:#e4eaf2;cursor:pointer}
+
+.filters button.active{background:#172943;color:white}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+
+.card{background:white;border-radius:14px;padding:13px;box-shadow:0 3px 15px #17243a12}
+
+.picture{height:110px;border-radius:10px;background:#edf1f7;display:grid;place-items:center;font-size:55px}
+
+.tag{font-size:12px;color:#a45b00;font-weight:bold;margin-top:13px}
+
+.card h3{font-size:17px}
+
+.card p{font-size:14px;line-height:1.5;color:#617087}
+
+.buy{display:block;text-align:center;background:#ffab42;color:#17243a;text-decoration:none;padding:12px 5px;border-radius:8px;font-weight:bold;font-size:14px}
+
+.info{background:white;padding:20px;border-radius:12px;margin-top:25px;line-height:1.6}
+
+footer{background:#101b30;color:#d0d9e6;text-align:center;padding:28px 16px;font-size:13px;line-height:1.8}
+
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:48px}}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🛍️ Coin des <span>Bons Plans</span></div>
+
+<nav><a href="#accueil">Accueil</a><a href="#produits">Nos trouvailles</a><a href="#apropos">À propos</a></nav>
+
+</header>
+
+<section class="hero" id="accueil">
+
+<h1>Les trouvailles qui font plaisir !</h1>
+
+<p>Gadgets tendance, accessoires malins et idées originales pour ton quotidien.</p>
+
+<a class="btn" href="#produits">Découvrir les produits ↓</a>
+
+</section>
+
+<main>
+
+<h2>✨ Nos pépites du moment</h2>
+
+<input class="search" id="search" placeholder="Rechercher un produit..." oninput="filterProducts()">
+
+<div class="filters">
+
+<button class="active" onclick="setCategory('Tout',this)">Tout</button>
+
+<button onclick="setCategory('High-tech',this)">High-tech</button>
+
+<button onclick="setCategory('Maison',this)">Maison</button>
+
+<button onclick="setCategory('Gadgets',this)">Gadgets</button>
+
+</div>
+
+<div class="grid" id="produits">
+
+<article class="card" data-category="High-tech">
+
+<div class="picture">📽️</div>
+
+<div class="tag">NOTRE DÉCOUVERTE</div>
+
+<h3>Mini projecteur portable</h3>
+
+<p>Transforme tes soirées en séance cinéma à la maison.</p>
+
+<p><b>Prix à consulter sur Amazon</b></p>
+
+<a class="buy" href="https://www.amazon.fr/s?k=mini+projecteur+portable" target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon ↗</a>
+
+</article>
+
+<article class="card" data-category="High-tech">
+
+<div class="picture">🎧</div>
+
+<div class="tag">HIGH-TECH</div>
+
+<h3>Écouteurs sans fil</h3>
+
+<p>Une solution pratique pour écouter ta musique partout.</p>
+
+<p><b>Prix à consulter sur Amazon</b></p>
+
+<a class="buy" href="https://www.amazon.fr/s?k=ecouteurs+bluetooth" target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon ↗</a>
+
+</article>
+
+<article class="card" data-category="Maison">
+
+<div class="picture">💡</div>
+
+<div class="tag">AMBIANCE</div>
+
+<h3>Lampe LED</h3>
+
+<p>Une touche lumineuse pour personnaliser ton intérieur.</p>
+
+<p><b>Prix à consulter sur Amazon</b></p>
+
+<a class="buy" href="https://www.amazon.fr/s?k=lampe+led+ambiance" target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon ↗</a>
+
+</article>
+
+<article class="card" data-category="Gadgets">
+
+<div class="picture">📱</div>
+
+<div class="tag">ACCESSOIRE MALIN</div>
+
+<h3>Support téléphone</h3>
+
+<p>Un accessoire pratique pour ton bureau.</p>
+
+<p><b>Prix à consulter sur Amazon</b></p>
+
+<a class="buy" href="https://www.amazon.fr/s?k=support+telephone+bureau" target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon ↗</a>
+
+</article>
+
+<article class="card" data-category="Maison">
+
+<div class="picture">🧹</div>
+
+<div class="tag">PRATIQUE</div>
+
+<h3>Mini aspirateur de bureau</h3>
+
+<p>Pour nettoyer les petits espaces et ton clavier.</p>
+
+<p><b>Prix à consulter sur Amazon</b></p>
+
+<a class="buy" href="https://www.amazon.fr/s?k=mini+aspirateur+bureau" target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon ↗</a>
+
+</article>
+
+<article class="card" data-category="Gadgets">
+
+<div class="picture">🥤</div>
+
+<div class="tag">QUOTIDIEN</div>
+
+<h3>Gourde isotherme</h3>
+
+<p>Une compagne pratique pour tes boissons.</p>
+
+<p><b>Prix à consulter sur Amazon</b></p>
+
+<a class="buy" href="https://www.amazon.fr/s?k=gourde+isotherme" target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon ↗</a>
+
+</article>
+
+</div>
+
+<section class="info" id="apropos">
+
+<h2>Bienvenue chez Coin des Bons Plans !</h2>
+
+<p>Nous partageons des idées de gadgets, des accessoires utiles et des découvertes pour le quotidien. Notre objectif est de faciliter la découverte de produits intéressants.</p>
+
+</section>
+
+</main>
+
+<footer>
+
+<strong>Coin des Bons Plans</strong><br>
+
+Certains liens peuvent être des liens affiliés.<br>
+
+En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises.<br>
+
+Les prix et disponibilités peuvent varier.<br>
+
+© 2026 Coin des Bons Plans
+
+</footer>
+
+<script>
+
+let category="Tout";
+
+function setCategory(value,button){
+
+category=value;
+
+document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+filterProducts();
+
+}
+
+function filterProducts(){
+
+let search=document.getElementById("search").value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(card=>{
+
+let okCategory=category==="Tout"||card.dataset.category===category;
+
+let okSearch=card.innerText.toLowerCase().includes(search);
+
+card.style.display=okCategory&&okSearch?"block":"none";
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
